@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
 import { useSelector, useDispatch, connect } from "react-redux";
-import { increment, decrement, input } from "./redux/action";
-
-function App({ counter }) {
+// import { increment, decrement, input } from "./redux/action";
+import { increment, decrement, input } from "./redux/tool-slicer";
+function App({}) {
+  const counter = useSelector((state) => state.counter);
   const dispatch = useDispatch(); //props 에서 받아오는 것도 가능 props.dispatch
   const handleIncrement = () => {
     dispatch(increment());
@@ -35,8 +36,12 @@ function App({ counter }) {
     </div>
   );
 }
-const mapStateToProps = (state) => state;
-export default connect(mapStateToProps)(App);
+// const mapStateToProps = (state) => {
+//   return {
+//     counter: state.counter,
+//   };
+// };
+export default App;
 
 // function App({ onIncrement, onDecrement, onInput, counter }) {
 //   // const dispatch = useDispatch(); //props 에서 받아오는 것도 가능

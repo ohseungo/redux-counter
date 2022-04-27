@@ -4,13 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createStore } from "redux";
-import counterReducer from "./redux/reducer";
+// import counterReducer from "./redux/reducer";
 import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import counterReducer from "./redux/tool-slicer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 //deprecated - 공식에서도 toolkit
-const store = createStore(counterReducer);
+// const store = createStore(counterReducer);
+const store = configureStore({
+  reducer: counterReducer,
+});
 root.render(
   <React.StrictMode>
     <Provider store={store}>
